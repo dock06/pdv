@@ -1,0 +1,11 @@
+C:\Users\david\source\repos\PDV\PDV.Entities\bin\Debug\PDV.Entities.dll
+C:\Users\david\source\repos\PDV\PDV.Entities\bin\Debug\PDV.Entities.pdb
+C:\Users\david\source\repos\PDV\PDV.Entities\bin\Debug\PDV.Model.dll
+C:\Users\david\source\repos\PDV\PDV.Entities\bin\Debug\MySql.Data.dll
+C:\Users\david\source\repos\PDV\PDV.Entities\bin\Debug\PDV.Model.pdb
+C:\Users\david\source\repos\PDV\PDV.Entities\bin\Debug\PDV.Model.dll.config
+C:\Users\david\source\repos\PDV\PDV.Entities\obj\Debug\PDV.Entities.csprojAssemblyReference.cache
+C:\Users\david\source\repos\PDV\PDV.Entities\obj\Debug\PDV.Entities.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\PDV\PDV.Entities\obj\Debug\PDV.Entities.csproj.CopyComplete
+C:\Users\david\source\repos\PDV\PDV.Entities\obj\Debug\PDV.Entities.dll
+C:\Users\david\source\repos\PDV\PDV.Entities\obj\Debug\PDV.Entities.pdb

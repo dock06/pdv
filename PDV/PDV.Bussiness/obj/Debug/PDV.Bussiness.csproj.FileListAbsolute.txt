@@ -1,0 +1,13 @@
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\PDV.Bussiness.dll
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\PDV.Bussiness.pdb
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\PDV.Entities.dll
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\PDV.Model.dll
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\MySql.Data.dll
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\PDV.Entities.pdb
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\PDV.Model.pdb
+C:\Users\david\source\repos\PDV\PDV.Bussiness\bin\Debug\PDV.Model.dll.config
+C:\Users\david\source\repos\PDV\PDV.Bussiness\obj\Debug\PDV.Bussiness.csprojAssemblyReference.cache
+C:\Users\david\source\repos\PDV\PDV.Bussiness\obj\Debug\PDV.Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\PDV\PDV.Bussiness\obj\Debug\PDV.Bussiness.csproj.CopyComplete
+C:\Users\david\source\repos\PDV\PDV.Bussiness\obj\Debug\PDV.Bussiness.dll
+C:\Users\david\source\repos\PDV\PDV.Bussiness\obj\Debug\PDV.Bussiness.pdb
