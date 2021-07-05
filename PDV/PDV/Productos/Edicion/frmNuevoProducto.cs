@@ -12,11 +12,9 @@ namespace PDV.Productos
         public int TipoFormulario;
         public int ClaveProducto { get; set; }
 
-        public Categoria categoria;
-        public Clasificacion clasificacion;
-        private Presentacion presentacion;
-        private Presentaciones bPresentaciones;
-        private Categorias bCategorias;
+        public Entities.Productos.TipoProducto tipoProducto;
+        public Entities.Productos.Calidad calidad;
+        private Bussiness.Productos.TipoProducto bTipoProducto;
         private Producto producto;
         private Bussiness.Productos.Productos bsProductos;
 
@@ -24,10 +22,8 @@ namespace PDV.Productos
         {
             InitializeComponent();
             TipoFormulario = Opcion;
-            categoria = new Categoria();
-            clasificacion = new Clasificacion();
-            presentacion = new Presentacion();
-
+            tipoProducto = new Entities.Productos.TipoProducto();
+            calidad = new Entities.Productos.Calidad();
         }
         public void InicializarControles()
         {
@@ -37,10 +33,10 @@ namespace PDV.Productos
             this.txtCodigo.Visible = TipoFormulario == 2;
             #region cmbCategorias
             cmbCategoria.SelectedIndexChanged -= new EventHandler(cmbCategoria_SelectedIndexChanged);
-            categoria.Descripcion = "";
-            categoria.Status = -1;
-            bCategorias = new Bussiness.Productos.Categorias(categoria);
-            DataTable dtCategoria = bCategorias.Consulta().Tables[0];
+            //categoria./*Descripcion*/ = "";
+            tipoProducto.Status = -1;
+            bTipoProducto = new Bussiness.Productos.TipoProducto(tipoProducto);
+            DataTable dtCategoria = bTipoProducto.Consulta().Tables[0];
             DataRow drCategoria = dtCategoria.NewRow();
             drCategoria[0] = 0;
             drCategoria[1] = "Todos";
@@ -50,25 +46,25 @@ namespace PDV.Productos
             dtCategoria = dtV.ToTable();
             cmbCategoria.DataSource = dtCategoria;
             cmbCategoria.ValueMember = "Codigo";
-            cmbCategoria.DisplayMember = "Descripcion";
+            cmbCategoria.DisplayMember = "NombreTipoProducto";
             cmbCategoria.SelectedIndexChanged += new EventHandler(cmbCategoria_SelectedIndexChanged);
             #endregion
-
+            this.CargarClasificaciones();
             if (TipoFormulario == 2)
             {
                 producto = new Producto();
                 txtCodigo.Text = ClaveProducto.ToString();
                 producto.ClaveProducto = ClaveProducto;
                 producto.NombreProducto = "";
-                producto.ClaveCategoria = 0;
-                producto.ClaveClasificacion = 0;
-                producto.ClavePresentacion = 0;
+                //producto.ClaveCategoria = 0;
+                //producto.ClaveClasificacion = 0;
+                //producto.ClavePresentacion = 0;
                 producto.Status = -1;
                 producto.Consultar();
                 txtDescripcion.Text = producto.NombreProducto;
-                cmbCategoria.SelectedValue = producto.ClaveCategoria;
-                cmbClasificacion.SelectedValue = producto.ClaveClasificacion;
-                cmbPresentacion.SelectedValue = producto.ClavePresentacion;
+                //cmbCategoria.SelectedValue = producto.ClaveCategoria;
+                //cmbClasificacion.SelectedValue = producto.ClaveClasificacion;
+                //cmbPresentacion.SelectedValue = producto.ClavePresentacion;
                 txtPrecio.Text = producto.Precio.ToString();
                 txtIva.Text = producto.IVA.ToString();
                 if (decimal.Parse(txtIva.Text) > 0)
@@ -116,56 +112,30 @@ namespace PDV.Productos
             this.txtDescripcion.Select();
             this.txtDescripcion.Focus();
         }
-        public void CargarPresentaciones()
-        {
-            #region Clasificaciones
-            cmbPresentacion.SelectedIndexChanged -= new EventHandler(cmbPresentacion_SelectedIndexChanged);
-            presentacion.ClavePresentacion = 0;
-            presentacion.NombrePresentacion = "";
-            presentacion.Estatus = -1;
-            if (int.Parse(cmbClasificacion.SelectedValue.ToString()) != 0)
-            {
-                presentacion.ClaveClasificacion = int.Parse(cmbClasificacion.SelectedValue.ToString());
-            }
-            bPresentaciones = new Bussiness.Productos.Presentaciones(presentacion);
-            DataTable dtPresentaciones = bPresentaciones.Consultar();
-            DataRow drPresentacion = dtPresentaciones.NewRow();
-            drPresentacion[0] = 0;
-            drPresentacion[1] = "Todos";
-            dtPresentaciones.Rows.Add(drPresentacion);
-            DataView dvPresentaciones = dtPresentaciones.DefaultView;
-            dvPresentaciones.Sort = "Clave Presentación ASC";
-            dtPresentaciones = dvPresentaciones.ToTable();
-            cmbPresentacion.DataSource = dtPresentaciones;
-            cmbPresentacion.DisplayMember = "Descripcion";
-            cmbPresentacion.ValueMember = "Clave Presentación";
-            cmbPresentacion.SelectedValue = 0;
-            cmbClasificacion.SelectedIndexChanged += new EventHandler(cmbPresentacion_SelectedIndexChanged);
-            #endregion
-        }
+      
         public void CargarClasificaciones()
         {
             #region Clasificaciones
             cmbClasificacion.SelectedIndexChanged -= new EventHandler(cmbClasificacion_SelectedIndexChanged);
-            clasificacion.NombreClasificacion = "";
-            clasificacion.ClaveCategoria = 0;
+            //clasificacion.NombreClasificacion = "";
+            //clasificacion.ClaveCategoria = 0;
             if (int.Parse(cmbCategoria.SelectedValue.ToString()) != 0)
             {
-                clasificacion.ClaveCategoria = int.Parse(cmbCategoria.SelectedValue.ToString());
+                //clasificacion.ClaveCategoria = int.Parse(cmbCategoria.SelectedValue.ToString());
             }
 
-            clasificacion.Status = -1;
-            DataTable dtClasificaciones = clasificacion.Consultar().Tables[0];
+            calidad.Status = -1;
+            DataTable dtClasificaciones = calidad.Consultar().Tables[0];
             DataRow drClasificacion = dtClasificaciones.NewRow();
             drClasificacion[0] = 0;
             drClasificacion[1] = "Todos";
             dtClasificaciones.Rows.Add(drClasificacion);
             DataView dtC = dtClasificaciones.DefaultView;
-            dtC.Sort = "ClaveClasificacion ASC";
+            dtC.Sort = "ClaveCalidad ASC";
             dtClasificaciones = dtC.ToTable();
             cmbClasificacion.DataSource = dtClasificaciones;
-            cmbClasificacion.DisplayMember = "Clasificacion";
-            cmbClasificacion.ValueMember = "ClaveClasificacion";
+            cmbClasificacion.DisplayMember = "Calidad";
+            cmbClasificacion.ValueMember = "ClaveCalidad";
             cmbClasificacion.SelectedValue = 0;
             cmbClasificacion.SelectedIndexChanged += new EventHandler(cmbClasificacion_SelectedIndexChanged);
 
@@ -174,7 +144,6 @@ namespace PDV.Productos
 
         private void cmbClasificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.CargarPresentaciones();
         }
         private void cmbPresentacion_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -183,7 +152,7 @@ namespace PDV.Productos
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.CargarClasificaciones();
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -203,11 +172,16 @@ namespace PDV.Productos
             {
                 ClaveProducto = int.TryParse(txtCodigo.Text, out int x) ? int.Parse(txtCodigo.Text) : 0,
                 NombreProducto = txtDescripcion.Text,
-                ClaveCategoria = int.Parse(cmbCategoria.SelectedValue.ToString()),
-                ClaveClasificacion = int.Parse(cmbClasificacion.SelectedValue.ToString()),
-                ClavePresentacion = int.Parse(cmbPresentacion.SelectedValue.ToString()),
+                ClaveTipoProducto = int.Parse(cmbCategoria.SelectedValue.ToString()),
+                ClaveCalidad = int.Parse(cmbClasificacion.SelectedValue.ToString()),
                 Precio = decimal.Parse(txtPrecio.Text),
-                IVA = decimal.Parse(txtIva.Text)
+                IVA = decimal.Parse(txtIva.Text),
+                GruesoCompra = decimal.Parse(txtGruesoCompra.Text),
+                AnchoCompra = decimal.Parse(txtAnchoCompra.Text),
+                LargoCompra = decimal.Parse(txtLargoCompra.Text),
+                GruesoVenta = decimal.Parse(txtGruesoVenta.Text),
+                AnchoVenta = decimal.Parse(txtAnchoVenta.Text),
+                LargoVenta = decimal.Parse(txtLargoVenta.Text)
             };
             
         }

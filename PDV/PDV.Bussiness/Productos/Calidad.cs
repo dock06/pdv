@@ -2,11 +2,11 @@
 
 namespace PDV.Bussiness.Productos
 {
-    public class Clasificaciones
+    public class Calidad
     {
-        public readonly Bussiness.Productos.Clasificaciones clasificacion;
+        public readonly Bussiness.Productos.Calidad clasificacion;
 
-        public Clasificaciones(Clasificaciones _clasificacion)
+        public Calidad(Calidad _clasificacion)
         {
             clasificacion = _clasificacion;
         }

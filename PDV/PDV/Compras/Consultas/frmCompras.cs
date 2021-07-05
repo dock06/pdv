@@ -7,12 +7,12 @@ namespace PDV.Compras.Consultas
     public partial class frmCompras : Form
     {
         public Entities.Productos.Producto producto;
-        public Entities.Productos.Categoria categoria;
-        public Entities.Productos.Clasificacion clasificacion;
+        public Entities.Productos.TipoProducto tipoProducto;
+        public Entities.Productos.Calidad calidad;
         public Entities.Productos.Presentacion presentacion;
         public Bussiness.Productos.Productos bProductos;
-        public Bussiness.Productos.Categorias bCategorias;
-        public Bussiness.Productos.Clasificaciones bClasificaciones;
+        public Bussiness.Productos.TipoProducto bCategorias;
+        public Bussiness.Productos.Calidad bClasificaciones;
         public Bussiness.Productos.Presentaciones bPresentaciones;
         public frmCompras()
         {
@@ -50,9 +50,9 @@ namespace PDV.Compras.Consultas
             #endregion
             #region cmbCategorias
             cmbCategorias.SelectedIndexChanged -= new EventHandler(cmbCategorias_SelectedIndexChanged);
-            categoria.Descripcion = "";
-            categoria.Status = -1;
-            bCategorias = new Bussiness.Productos.Categorias(categoria);
+            //categoria.Descripcion = "";
+            tipoProducto.Status = -1;
+            bCategorias = new Bussiness.Productos.TipoProducto(tipoProducto);
             DataTable dtCategoria = bCategorias.Consulta().Tables[0];
             DataRow drCategoria = dtCategoria.NewRow();
             drCategoria[0] = 0;
@@ -87,8 +87,8 @@ namespace PDV.Compras.Consultas
         private void frmCatalogo_Load(object sender, EventArgs e)
         {
             producto = new Entities.Productos.Producto();
-            categoria = new Entities.Productos.Categoria();
-            clasificacion = new Entities.Productos.Clasificacion();
+            tipoProducto = new Entities.Productos.TipoProducto();
+            calidad = new Entities.Productos.Calidad();
             presentacion = new Entities.Productos.Presentacion();
             InicializarControles();
             Consultar();
@@ -97,15 +97,10 @@ namespace PDV.Compras.Consultas
         {
             #region Clasificaciones
             cmbClasificaciones.SelectedIndexChanged -= new EventHandler(cmbClasificaciones_SelectedIndexChanged);
-            clasificacion.NombreClasificacion = "";
-            clasificacion.ClaveCategoria = 0;
-            if (int.Parse(cmbCategorias.SelectedValue.ToString()) != 0)
-            {
-                clasificacion.ClaveCategoria = int.Parse(cmbCategorias.SelectedValue.ToString());
-            }
+            calidad.NombreCalidad = "";
 
-            clasificacion.Status = -1;
-            DataTable dtClasificaciones = clasificacion.Consultar().Tables[0];
+            calidad.Status = -1;
+            DataTable dtClasificaciones = calidad.Consultar().Tables[0];
             DataRow drClasificacion = dtClasificaciones.NewRow();
             drClasificacion[0] = 0;
             drClasificacion[1] = "Todos";
@@ -151,9 +146,9 @@ namespace PDV.Compras.Consultas
         {
             producto.ClaveProducto = int.TryParse(txtCodigo.Text, out int clave) ? int.Parse(txtCodigo.Text) : 0;
             producto.NombreProducto = txtCodigo.Text;
-            producto.ClaveCategoria = int.Parse(cmbCategorias.SelectedValue.ToString());
-            producto.ClaveClasificacion = cmbClasificaciones.SelectedValue == null ? 0 : int.Parse(cmbClasificaciones.SelectedValue.ToString());
-            producto.ClavePresentacion = cmbPresentaciones.SelectedValue == null ? 0 : int.Parse(cmbPresentaciones.SelectedValue.ToString());
+            //producto.ClaveCategoria = int.Parse(cmbCategorias.SelectedValue.ToString());
+            //producto.ClaveClasificacion = cmbClasificaciones.SelectedValue == null ? 0 : int.Parse(cmbClasificaciones.SelectedValue.ToString());
+            //producto.ClavePresentacion = cmbPresentaciones.SelectedValue == null ? 0 : int.Parse(cmbPresentaciones.SelectedValue.ToString());
             producto.Status = int.Parse(cmbEstatus.SelectedValue.ToString());
             bProductos = new Bussiness.Productos.Productos(producto);
             DataTable dtConsulta = bProductos.Consultar().Tables[0];

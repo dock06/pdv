@@ -62,10 +62,9 @@ namespace PDV.Clientes.Edicion
         }
         public void CargarClasificacion()
         {
-            Clasificacion _Clasificacion = new Clasificacion
+            Calidad _Clasificacion = new Calidad
             {
-                NombreClasificacion = "",
-                ClaveCategoria = 0,
+                NombreCalidad = "",
                 Status = -1
             };
             DataTable dt = _Clasificacion.Consultar().Tables[0];

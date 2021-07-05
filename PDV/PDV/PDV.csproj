@@ -98,11 +98,11 @@
     <Compile Include="Productos\Consultas\frmBuscarCategoria.Designer.cs">
       <DependentUpon>frmBuscarCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productos\Consultas\frmClasificaciones.cs">
+    <Compile Include="Productos\Consultas\frmCalidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Productos\Consultas\frmClasificaciones.Designer.cs">
-      <DependentUpon>frmClasificaciones.cs</DependentUpon>
+    <Compile Include="Productos\Consultas\frmCalidad.Designer.cs">
+      <DependentUpon>frmCalidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\Consultas\frmImportar.cs">
       <SubType>Form</SubType>
@@ -122,23 +122,23 @@
     <Compile Include="Productos\Consultas\frmCatalogoProductos.Designer.cs">
       <DependentUpon>frmCatalogoProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productos\Consultas\frmCategorias.cs">
+    <Compile Include="Productos\Consultas\frmTipoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Productos\Consultas\frmCategorias.Designer.cs">
-      <DependentUpon>frmCategorias.cs</DependentUpon>
+    <Compile Include="Productos\Consultas\frmTipoProducto.Designer.cs">
+      <DependentUpon>frmTipoProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productos\Edicion\frmNuevaClasificacion.cs">
+    <Compile Include="Productos\Edicion\frmNuevaCalidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Productos\Edicion\frmNuevaClasificacion.Designer.cs">
-      <DependentUpon>frmNuevaClasificacion.cs</DependentUpon>
+    <Compile Include="Productos\Edicion\frmNuevaCalidad.Designer.cs">
+      <DependentUpon>frmNuevaCalidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productos\Edicion\frmNuevaCategoria.cs">
+    <Compile Include="Productos\Edicion\frmNuevoTipoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Productos\Edicion\frmNuevaCategoria.Designer.cs">
-      <DependentUpon>frmNuevaCategoria.cs</DependentUpon>
+    <Compile Include="Productos\Edicion\frmNuevoTipoProducto.Designer.cs">
+      <DependentUpon>frmNuevoTipoProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\Edicion\frmNuevaPromocion.cs">
       <SubType>Form</SubType>
@@ -214,8 +214,8 @@
     <EmbeddedResource Include="Productos\Consultas\frmBuscarCategoria.resx">
       <DependentUpon>frmBuscarCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Productos\Consultas\frmClasificaciones.resx">
-      <DependentUpon>frmClasificaciones.cs</DependentUpon>
+    <EmbeddedResource Include="Productos\Consultas\frmCalidad.resx">
+      <DependentUpon>frmCalidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Consultas\frmImportar.resx">
       <DependentUpon>frmImportar.cs</DependentUpon>
@@ -226,14 +226,14 @@
     <EmbeddedResource Include="Productos\Consultas\frmCatalogoProductos.resx">
       <DependentUpon>frmCatalogoProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Productos\Consultas\frmCategorias.resx">
-      <DependentUpon>frmCategorias.cs</DependentUpon>
+    <EmbeddedResource Include="Productos\Consultas\frmTipoProducto.resx">
+      <DependentUpon>frmTipoProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Productos\Edicion\frmNuevaClasificacion.resx">
-      <DependentUpon>frmNuevaClasificacion.cs</DependentUpon>
+    <EmbeddedResource Include="Productos\Edicion\frmNuevaCalidad.resx">
+      <DependentUpon>frmNuevaCalidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Productos\Edicion\frmNuevaCategoria.resx">
-      <DependentUpon>frmNuevaCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="Productos\Edicion\frmNuevoTipoProducto.resx">
+      <DependentUpon>frmNuevoTipoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Edicion\frmNuevaPromocion.resx">
       <DependentUpon>frmNuevaPromocion.cs</DependentUpon>

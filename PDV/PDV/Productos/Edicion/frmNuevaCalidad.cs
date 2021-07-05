@@ -1,25 +1,22 @@
 ﻿using PDV.Entities.Productos;
 using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace PDV.Productos
 {
-    public partial class frmNuevaClasificacion : Form
+    public partial class frmNuevaCalidad : Form
     {
         #region Propiedades
         public int tipoFormulario;
-        public int ClaveClasifiacion { get; set; }
+        public int ClaveCalidad { get; set; }
         #endregion
-        public Categoria categoria = new Categoria();
-        private Clasificacion clasificacion;
-        public frmNuevaClasificacion(int opcion)
+        private Calidad calidad;
+        public frmNuevaCalidad(int opcion)
         {
             InitializeComponent();
 
             tipoFormulario = opcion;
-            categoria = new Categoria();
-            clasificacion = new Clasificacion();
+            calidad = new Calidad();
 
         }
         #region Eventos
@@ -55,14 +52,13 @@ namespace PDV.Productos
             this.CargarClasificacion();
             if (tipoFormulario == 2)
             {
-                clasificacion = new Clasificacion();
-                txtCodigo.Text = ClaveClasifiacion.ToString();
-                clasificacion.ClaveClasificacion = ClaveClasifiacion;
-                clasificacion.NombreClasificacion = "";
-                clasificacion.Status = -1;
-                clasificacion.Consultar();
-                txtNombre.Text = clasificacion.NombreClasificacion;
-                cmbCategorias.SelectedValue = clasificacion.ClaveCategoria;
+                calidad = new Calidad();
+                txtCodigo.Text = ClaveCalidad.ToString();
+                calidad.ClaveCalidad = int.Parse(ClaveCalidad.ToString());
+                calidad.NombreCalidad = "";
+                calidad.Status = -1;
+                calidad.Consultar();
+                txtNombre.Text = calidad.NombreCalidad;
                 this.txtCodigo.ReadOnly = true;
             }
         }
@@ -80,21 +76,23 @@ namespace PDV.Productos
             }
             if (Mensajes.MostrarConfirmacion("Nueva Clasificación", "Desea ingresar la nueva clasificación."))
             {
-                clasificacion = new Clasificacion
+                calidad = new Calidad
                 {
-                    NombreClasificacion = txtNombre.Text
-                    ,
-                    ClaveCategoria = int.Parse(cmbCategorias.SelectedValue.ToString())
+                    NombreCalidad = txtNombre.Text
                 };
-                clasificacion.Inserta();
+                calidad.Inserta();
 
-                if (clasificacion.StatusOP == 1)
+                if (calidad.StatusOP == 1)
                 {
-                    Mensajes.MostrarNotificacion("Nueva Clasificación", clasificacion.Mensaje);
+                    Mensajes.MostrarNotificacion("Nueva Clasificación", calidad.Mensaje);
                 }
-                if (clasificacion.StatusOP == 0)
+                if (calidad.StatusOP == 0)
                 {
-                    Mensajes.MostrarAdvertencia("Nueva Clasificación", clasificacion.Mensaje);
+                    Mensajes.MostrarAdvertencia("Nueva Clasificación", calidad.Mensaje);
+                }
+                if (calidad.StatusOP == -1)
+                {
+                    Mensajes.MostrarAdvertencia("Nueva Clasificación", calidad.MensajeException);
                 }
             }
         }
@@ -108,30 +106,34 @@ namespace PDV.Productos
             }
             if (Mensajes.MostrarConfirmacion("Modificar clasificación", "Desea modificar la  clasificación."))
             {
-                clasificacion.NombreClasificacion = txtNombre.Text;
-                clasificacion.Actualizar();
+                calidad.NombreCalidad = txtNombre.Text;
+                calidad.Actualizar();
 
-                if (clasificacion.StatusOP == 1)
+                if (calidad.StatusOP == 1)
                 {
-                    Mensajes.MostrarNotificacion("Nueva clasificación", clasificacion.Mensaje);
+                    Mensajes.MostrarNotificacion("Modificar clasificación", calidad.Mensaje);
                 }
-                if (clasificacion.StatusOP == 0)
+                if (calidad.StatusOP == 0)
                 {
-                    Mensajes.MostrarAdvertencia("Nueva clasificación", clasificacion.Mensaje);
+                    Mensajes.MostrarAdvertencia("Modificar clasificación", calidad.Mensaje);
+                }
+                if (calidad.StatusOP == -1)
+                {
+                    Mensajes.MostrarAdvertencia("Modificar Clasificación", calidad.MensajeException);
                 }
             }
         }
         public void CargarClasificacion()
         {
-            Categoria _categoria = new Categoria
-            {
-                Descripcion = "",
-                Status = -1
-            };
-            DataTable dt = _categoria.ConsultarCategorias().Tables[0];
-            cmbCategorias.DataSource = dt;
-            cmbCategorias.ValueMember = "Codigo";
-            cmbCategorias.DisplayMember = "Descripcion";
+            //TipoProducto _categoria = new TipoProducto
+            //{
+            //    //Descripcion = "",
+            //    Status = -1
+            //};
+            //DataTable dt = _categoria.ConsultarCategorias().Tables[0];
+            //cmbCategorias.DataSource = dt;
+            //cmbCategorias.ValueMember = "Codigo";
+            //cmbCategorias.DisplayMember = "Descripcion";
         }
         #endregion
 

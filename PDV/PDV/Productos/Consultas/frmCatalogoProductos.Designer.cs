@@ -39,11 +39,9 @@
             this.cmbClasificaciones = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbEstatus = new System.Windows.Forms.ComboBox();
-            this.cmbPresentaciones = new System.Windows.Forms.ComboBox();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnNuevoProducto = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -56,8 +54,9 @@
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RFC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,11 +100,9 @@
             this.groupBox1.Controls.Add(this.cmbClasificaciones);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmbEstatus);
-            this.groupBox1.Controls.Add(this.cmbPresentaciones);
             this.groupBox1.Controls.Add(this.cmbCategorias);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnNuevoProducto);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtCodigo);
@@ -123,7 +120,7 @@
             this.cmbClasificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbClasificaciones.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClasificaciones.FormattingEnabled = true;
-            this.cmbClasificaciones.Location = new System.Drawing.Point(637, 19);
+            this.cmbClasificaciones.Location = new System.Drawing.Point(633, 19);
             this.cmbClasificaciones.Name = "cmbClasificaciones";
             this.cmbClasificaciones.Size = new System.Drawing.Size(127, 29);
             this.cmbClasificaciones.TabIndex = 46;
@@ -132,11 +129,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(532, 23);
+            this.label6.Location = new System.Drawing.Point(562, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 21);
+            this.label6.Size = new System.Drawing.Size(65, 21);
             this.label6.TabIndex = 45;
-            this.label6.Text = "Clasificación:";
+            this.label6.Text = "Calidad:";
             // 
             // cmbEstatus
             // 
@@ -144,21 +141,10 @@
             this.cmbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbEstatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstatus.FormattingEnabled = true;
-            this.cmbEstatus.Location = new System.Drawing.Point(1073, 19);
+            this.cmbEstatus.Location = new System.Drawing.Point(828, 19);
             this.cmbEstatus.Name = "cmbEstatus";
             this.cmbEstatus.Size = new System.Drawing.Size(99, 29);
             this.cmbEstatus.TabIndex = 44;
-            // 
-            // cmbPresentaciones
-            // 
-            this.cmbPresentaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPresentaciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbPresentaciones.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPresentaciones.FormattingEnabled = true;
-            this.cmbPresentaciones.Location = new System.Drawing.Point(878, 19);
-            this.cmbPresentaciones.Name = "cmbPresentaciones";
-            this.cmbPresentaciones.Size = new System.Drawing.Size(127, 29);
-            this.cmbPresentaciones.TabIndex = 43;
             // 
             // cmbCategorias
             // 
@@ -166,7 +152,7 @@
             this.cmbCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbCategorias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategorias.FormattingEnabled = true;
-            this.cmbCategorias.Location = new System.Drawing.Point(399, 19);
+            this.cmbCategorias.Location = new System.Drawing.Point(429, 19);
             this.cmbCategorias.Name = "cmbCategorias";
             this.cmbCategorias.Size = new System.Drawing.Size(127, 29);
             this.cmbCategorias.TabIndex = 42;
@@ -175,7 +161,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1011, 23);
+            this.label4.Location = new System.Drawing.Point(766, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 21);
             this.label4.TabIndex = 38;
@@ -186,7 +172,7 @@
             this.btnNuevoProducto.BackColor = System.Drawing.Color.Snow;
             this.btnNuevoProducto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoProducto.Image = global::PDV.Properties.Resources.agregar;
-            this.btnNuevoProducto.Location = new System.Drawing.Point(1178, 17);
+            this.btnNuevoProducto.Location = new System.Drawing.Point(933, 17);
             this.btnNuevoProducto.Name = "btnNuevoProducto";
             this.btnNuevoProducto.Size = new System.Drawing.Size(149, 32);
             this.btnNuevoProducto.TabIndex = 37;
@@ -196,25 +182,15 @@
             this.btnNuevoProducto.UseVisualStyleBackColor = false;
             this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(770, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 21);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Presentación:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(313, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 21);
+            this.label1.Size = new System.Drawing.Size(110, 21);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Categoría:";
+            this.label1.Text = "Tipo Producto:";
             // 
             // label3
             // 
@@ -294,8 +270,9 @@
             this.Direccion,
             this.Telefono,
             this.Contacto,
-            this.Correo,
             this.RFC,
+            this.Correo,
+            this.Column1,
             this.FechaCreacion,
             this.FechaModificacion,
             this.Estado,
@@ -346,34 +323,26 @@
             // Direccion
             // 
             this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Direccion.HeaderText = "Categoria";
+            this.Direccion.HeaderText = "Tipo Producto";
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
-            this.Direccion.Width = 89;
+            this.Direccion.Width = 115;
             // 
             // Telefono
             // 
             this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Telefono.HeaderText = "Clasificación";
+            this.Telefono.HeaderText = "Calidad";
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 103;
+            this.Telefono.Width = 76;
             // 
             // Contacto
             // 
             this.Contacto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Contacto.HeaderText = "Presentación";
+            this.Contacto.HeaderText = "Precio";
             this.Contacto.Name = "Contacto";
             this.Contacto.ReadOnly = true;
-            this.Contacto.Width = 106;
-            // 
-            // Correo
-            // 
-            this.Correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Correo.HeaderText = "Precio";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 68;
+            this.Contacto.Width = 68;
             // 
             // RFC
             // 
@@ -384,6 +353,21 @@
             this.RFC.Name = "RFC";
             this.RFC.ReadOnly = true;
             this.RFC.Width = 50;
+            // 
+            // Correo
+            // 
+            this.Correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Correo.HeaderText = "Ancho";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Width = 68;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Largo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 66;
             // 
             // FechaCreacion
             // 
@@ -459,7 +443,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlTablaClientes;
         private System.Windows.Forms.TabControl tbcVentas;
@@ -468,7 +451,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.ComboBox cmbEstatus;
-        private System.Windows.Forms.ComboBox cmbPresentaciones;
         private System.Windows.Forms.ComboBox cmbClasificaciones;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabProductos;
@@ -478,8 +460,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contacto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn RFC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaModificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;

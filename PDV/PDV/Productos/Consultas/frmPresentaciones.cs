@@ -8,12 +8,12 @@ namespace PDV.Productos
     public partial class frmPresentaciones : Form
     {
         private Presentacion presentacion;
-        private Clasificacion clasificacion;
+        private Calidad calidad;
         public frmPresentaciones()
         {
             InitializeComponent();
             presentacion = new Presentacion();
-            clasificacion = new Clasificacion();
+            calidad = new Calidad();
         }
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
@@ -30,7 +30,7 @@ namespace PDV.Productos
                     case "Eliminar":
                         if (Mensajes.MostrarConfirmacion("Presentaciones", string.Format("¿{0} la Presentación {1}?", dgvDatos.Rows[e.RowIndex].Cells[5].Value.ToString() == "Activo" ? "Inactivar" : "Activar", dgvDatos.Rows[e.RowIndex].Cells[1].Value.ToString())))
                         {
-                            Categoria categoria = new Categoria();
+                            TipoProducto categoria = new TipoProducto();
                             presentacion.ClavePresentacion = int.Parse(dgvDatos.Rows[e.RowIndex].Cells[0].Value.ToString());
                             presentacion.Eliminar();
                             this.Consultar();
@@ -132,10 +132,9 @@ namespace PDV.Productos
                 cmbEstatus.SelectedIndexChanged += new EventHandler(cmbEstatus_SelectedIndexChanged);
                 //cmbCategorias
                 cmbClasificaciones.SelectedIndexChanged -= new EventHandler(cmbClasificaciones_SelectedIndexChanged);
-                clasificacion.NombreClasificacion = "";
-                clasificacion.ClaveCategoria = 0;
-                clasificacion.Status = -1;
-                DataTable dtClasificaciones = clasificacion.Consultar().Tables[0];
+                calidad.NombreCalidad = "";
+                calidad.Status = -1;
+                DataTable dtClasificaciones = calidad.Consultar().Tables[0];
                 DataRow drCategoria = dtClasificaciones.NewRow();
                 drCategoria[0] = 0;
                 drCategoria[1] = "Todos";

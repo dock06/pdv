@@ -68,7 +68,7 @@
             this.btnClasificacion.Name = "btnClasificacion";
             this.btnClasificacion.Size = new System.Drawing.Size(135, 32);
             this.btnClasificacion.TabIndex = 6;
-            this.btnClasificacion.Text = "Clasificaciones";
+            this.btnClasificacion.Text = "Calidad";
             this.btnClasificacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClasificacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClasificacion.UseVisualStyleBackColor = false;
@@ -79,7 +79,7 @@
             this.btnPresentaciones.BackColor = System.Drawing.Color.Snow;
             this.btnPresentaciones.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPresentaciones.Image = global::PDV.Properties.Resources.inventario;
-            this.btnPresentaciones.Location = new System.Drawing.Point(426, 8);
+            this.btnPresentaciones.Location = new System.Drawing.Point(849, 9);
             this.btnPresentaciones.Name = "btnPresentaciones";
             this.btnPresentaciones.Size = new System.Drawing.Size(135, 32);
             this.btnPresentaciones.TabIndex = 5;
@@ -87,6 +87,7 @@
             this.btnPresentaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPresentaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPresentaciones.UseVisualStyleBackColor = false;
+            this.btnPresentaciones.Visible = false;
             this.btnPresentaciones.Click += new System.EventHandler(this.btnPresentaciones_Click);
             // 
             // btnPromociones
@@ -110,7 +111,7 @@
             this.btnImportar.BackColor = System.Drawing.Color.Snow;
             this.btnImportar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportar.Image = global::PDV.Properties.Resources.importar;
-            this.btnImportar.Location = new System.Drawing.Point(567, 8);
+            this.btnImportar.Location = new System.Drawing.Point(426, 8);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Size = new System.Drawing.Size(135, 32);
             this.btnImportar.TabIndex = 3;
@@ -129,7 +130,7 @@
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(135, 32);
             this.btnCategorias.TabIndex = 2;
-            this.btnCategorias.Text = "Categorias";
+            this.btnCategorias.Text = "Tipo Producto";
             this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCategorias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCategorias.UseVisualStyleBackColor = false;

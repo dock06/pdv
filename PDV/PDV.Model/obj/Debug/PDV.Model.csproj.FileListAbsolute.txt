@@ -25,3 +25,11 @@ C:\Users\david\source\repos\PDV\PDV.Model\obj\Debug\PDV.Model.csproj.CoreCompile
 C:\Users\david\source\repos\PDV\PDV.Model\obj\Debug\PDV.Model.csproj.CopyComplete
 C:\Users\david\source\repos\PDV\PDV.Model\obj\Debug\PDV.Model.dll
 C:\Users\david\source\repos\PDV\PDV.Model\obj\Debug\PDV.Model.pdb
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\bin\Debug\PDV.Model.dll.config
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\bin\Debug\PDV.Model.dll
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\bin\Debug\PDV.Model.pdb
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\obj\Debug\PDV.Model.csprojAssemblyReference.cache
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\obj\Debug\PDV.Model.csproj.CoreCompileInputs.cache
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\obj\Debug\PDV.Model.csproj.CopyComplete
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\obj\Debug\PDV.Model.dll
+C:\Users\F99113\Source\Repos\pdv2\PDV\PDV.Model\obj\Debug\PDV.Model.pdb

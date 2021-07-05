@@ -9,11 +9,16 @@ namespace PDV.Entities.Productos
         #region Propiedades
         public int ClaveProducto { get; set; }
         public string NombreProducto { get; set; }
-        public int ClaveCategoria { get; set; }
-        public int ClaveClasificacion { get; set; }
-        public int ClavePresentacion { get; set; }
+        public int ClaveTipoProducto { get; set; }
+        public int ClaveCalidad { get; set; }
         public decimal Precio { get; set; }
         public decimal IVA { get; set; }
+        public decimal GruesoCompra { get; set; }
+        public decimal AnchoCompra { get; set; }
+        public decimal LargoCompra { get; set; }
+        public decimal GruesoVenta { get; set; }
+        public decimal AnchoVenta { get; set; }
+        public decimal LargoVenta { get; set; }
         public DateTime FechaRegistro { get; set; }
         public DateTime FechaModificacion { get; set; }
         public int Status { get; set; }
@@ -24,20 +29,24 @@ namespace PDV.Entities.Productos
             Parametros parametros = new Parametros();
             parametros.addParam("ClaveProducto", ClaveProducto);
             parametros.addParam("NombreProducto", NombreProducto);
-            parametros.addParam("ClaveCategoria", ClaveCategoria);
-            parametros.addParam("ClaveClasificacion", ClaveClasificacion);
-            parametros.addParam("ClavePresentacion", ClavePresentacion);
+            parametros.addParam("ClaveTipoProducto", ClaveTipoProducto);
+            parametros.addParam("ClaveCalidad", ClaveCalidad);
             parametros.addParam("Estatus", Status);
             DataSet ds = DB.executeSP("SpConsultarProductos", parametros);
             if (ds.Tables[0].Rows.Count == 1)
             {
                 DataRowCollection drs = ds.Tables[0].Rows;
-                NombreProducto = drs[0][1].ToString();
-                ClaveCategoria = int.Parse(drs[0][9].ToString());
-                ClaveClasificacion = int.Parse(drs[0][10].ToString());
-                ClavePresentacion = int.Parse(drs[0][11].ToString());
-                Precio = decimal.Parse(drs[0][5].ToString());
-                IVA = decimal.Parse(drs[0][6].ToString());
+                NombreProducto = drs[0]["NombreProducto"].ToString();
+                ClaveTipoProducto = int.Parse(drs[0]["ClaveTipoProducto"].ToString());
+                ClaveCalidad = int.Parse(drs[0]["ClaveCalidad"].ToString());
+                Precio = decimal.Parse(drs[0]["Precio"].ToString());
+                IVA = decimal.Parse(drs[0]["IVA"].ToString());
+                GruesoCompra = decimal.Parse(drs[0]["GruesoCompra"].ToString());
+                AnchoCompra = decimal.Parse(drs[0]["AnchoCompra"].ToString());
+                LargoCompra = decimal.Parse(drs[0]["LargoCompra"].ToString());
+                GruesoVenta = decimal.Parse(drs[0]["GruesoVenta"].ToString());
+                AnchoVenta = decimal.Parse(drs[0]["AnchoVenta"].ToString());
+                LargoVenta = decimal.Parse(drs[0]["LargoVenta"].ToString());
             }
             return ds;
         }
@@ -110,11 +119,17 @@ namespace PDV.Entities.Productos
         {
             parametros.addParam("ClaveProducto", ClaveProducto);
             parametros.addParam("NombreProducto", NombreProducto);
-            parametros.addParam("ClaveCategoria", ClaveCategoria);
-            parametros.addParam("ClaveClasificacion", ClaveClasificacion);
-            parametros.addParam("ClavePresentacion", ClavePresentacion);
+            parametros.addParam("ClaveTipoProducto", ClaveTipoProducto);
+            parametros.addParam("ClaveCalidad", ClaveCalidad);
             parametros.addParam("Precio", Precio);
             parametros.addParam("IVA", IVA);
+            parametros.addParam("GruesoCompra", GruesoCompra);
+            parametros.addParam("AnchoCompra", AnchoCompra);
+            parametros.addParam("LargoCompra", LargoCompra);
+            parametros.addParam("GruesoVenta", GruesoVenta);
+            parametros.addParam("AnchoVenta", AnchoVenta);
+            parametros.addParam("LargoVenta", LargoVenta);
+
         }
         #endregion
     }

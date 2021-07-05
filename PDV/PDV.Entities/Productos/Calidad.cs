@@ -4,22 +4,35 @@ using System.Data;
 
 namespace PDV.Entities.Productos
 {
-    public class Categoria : Resultado
+    public class Calidad : Resultado
     {
-        public int ClaveCategoria { get; set; }
-        public string Descripcion { get; set; }
+        /// <summary>
+        /// Propiedad ClaveClasificacion de la Clase Entities.Productos.Calidad perteneciente a la tabla tblCalidad
+        /// </summary>
+        public int ClaveCalidad { get; set; }
+        /// <summary>
+        /// Propiedad Calidad de la Clase Entities.Productos.Calidad perteneciente a la tabla tblCalidad
+        /// </summary>
+        public string NombreCalidad { get; set; }
+        /// <summary>
+        /// Propiedad FEchaCreacion de la Clase Entities.Productos.Calidad perteneciente a la tabla tblCalidad
+        /// </summary>
         public DateTime FechaCreacion { get; set; }
+        /// <summary>
+        /// Propiedad FechaModificaion de la Clase Entities.Productos.Calidad perteneciente a la tabla tblCalidad
+        /// </summary>
         public DateTime FechaModificaion { get; set; }
+        /// <summary>
+        /// Propiedad Status de la Clase Entities.Productos.Calidad perteneciente a la tabla tblCalidad
+        /// </summary>
         public int Status { get; set; }
-
-
-        public void InsertaCategoria()
+        public void Inserta()
         {
             try
             {
                 Parametros parametros = new Parametros();
-                parametros.addParam("Descripcion", Descripcion);
-                DataSet dsResultados = DB.executeSP("SpInsertCategoria", parametros);
+                parametros.addParam("Calidad", NombreCalidad);
+                DataSet dsResultados = DB.executeSP("SpInsertaCalidad", parametros);
                 if (dsResultados != null)
                 {
                     StatusOP = int.Parse(dsResultados.Tables[0].Rows[0]["Result"].ToString());
@@ -34,38 +47,29 @@ namespace PDV.Entities.Productos
                 MensajeException = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message;
             }
         }
-
-        public void ConsultaCategoria()
+        public DataSet Consultar()
         {
             Parametros parametros = new Parametros();
-            parametros.addParam("Clave", ClaveCategoria);
-            DataSet dsCategorias = DB.executeSP("spConsultaCategoria", parametros);
-            Descripcion = dsCategorias.Tables[0].Rows[0]["Descripcion"].ToString();
-        }
-
-        public DataSet ConsultarCategorias()
-        {
-            Parametros parametros = new Parametros();
-            parametros.addParam("Descripcion", Descripcion);
+            parametros.addParam("ClaveCalidad", ClaveCalidad);
+            parametros.addParam("Calidad", NombreCalidad);
             parametros.addParam("Estatus", Status);
-            DataSet ds = DB.executeSP("SpConsultaCategorias", parametros);
-
+            DataSet ds = DB.executeSP("SpConsultaCalidad", parametros);
             if (ds.Tables[0].Rows.Count == 1)
             {
-                Descripcion = ds.Tables[0].Rows[0]["Descripcion"].ToString();
+                this.ClaveCalidad = int.Parse(ds.Tables[0].Rows[0]["ClaveCalidad"].ToString());
+                this.NombreCalidad = ds.Tables[0].Rows[0]["Calidad"].ToString();
             }
-
             return ds;
-        }
 
-        public void ActualizarCategoria()
+        }
+        public void Actualizar()
         {
             try
             {
                 Parametros parametros = new Parametros();
-                parametros.addParam("Clave", ClaveCategoria);
-                parametros.addParam("Descripcion", Descripcion);
-                DataSet dsResultados = DB.executeSP("SpModificarCategoria", parametros);
+                parametros.addParam("ClaveCalidad", ClaveCalidad);
+                parametros.addParam("Calidad", NombreCalidad);
+                DataSet dsResultados = DB.executeSP("SpModificaCalidad", parametros);
                 if (dsResultados != null)
                 {
                     StatusOP = int.Parse(dsResultados.Tables[0].Rows[0]["Result"].ToString());
@@ -80,14 +84,13 @@ namespace PDV.Entities.Productos
                 MensajeException = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message;
             }
         }
-
-        public void EliminarCategoria()
+        public void Eliminar()
         {
             try
             {
                 Parametros parametros = new Parametros();
-                parametros.addParam("Clave", ClaveCategoria);
-                DataSet dsResultados = DB.executeSP("SpActivaInactivaCategoria", parametros);
+                parametros.addParam("ClaveCalidad", ClaveCalidad);
+                DataSet dsResultados = DB.executeSP("SpActivaInactivaCalidad", parametros);
                 if (dsResultados != null)
                 {
                     StatusOP = int.Parse(dsResultados.Tables[0].Rows[0]["Result"].ToString());

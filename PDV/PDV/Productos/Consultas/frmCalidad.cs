@@ -5,26 +5,26 @@ using System.Windows.Forms;
 
 namespace PDV.Productos
 {
-    public partial class frmClasificaciones : Form
+    public partial class frmCalidad : Form
     {
-        private Categoria categoria;
-        private Clasificacion clasificacion;
-        public frmClasificaciones()
+        private TipoProducto tipoProducto;
+        private Calidad calidad;
+        public frmCalidad()
         {
             InitializeComponent();
-            categoria = new Categoria();
-            clasificacion = new Clasificacion();
+            tipoProducto = new TipoProducto();
+            calidad = new Calidad();
         }
         #region Eventos        
         private void btnNuevoCategoria_Click(object sender, EventArgs e)
         {
 
-            frmNuevaClasificacion frmNuevaClasifiacion = new frmNuevaClasificacion(1);
-            frmNuevaClasifiacion.FormClosed += new System.Windows.Forms.FormClosedEventHandler(frmNuevaClasificacion_Load);
+            frmNuevaCalidad frmNuevaCalidad = new frmNuevaCalidad(1);
+            frmNuevaCalidad.FormClosed += new System.Windows.Forms.FormClosedEventHandler(frmNuevaCalidad_Load);
 
-            frmNuevaClasifiacion.Show();
+            frmNuevaCalidad.Show();
         }
-        private void frmNuevaClasificacion_Load(object sender, EventArgs e)
+        private void frmNuevaCalidad_Load(object sender, EventArgs e)
         {
             CargarControles();
             Consultar();
@@ -35,32 +35,26 @@ namespace PDV.Productos
             Consultar();
         }
 
-        private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         #endregion
         #region Metodos
         public void Consultar()
         {
-            clasificacion.ClaveClasificacion = int.TryParse(txtCodigo.Text, out int clave) ? int.Parse(txtCodigo.Text) : 0;
-            clasificacion.NombreClasificacion = txtCodigo.Text;
-            clasificacion.ClaveCategoria = int.Parse(cmbCategorias.SelectedValue.ToString());
-            clasificacion.Status = int.Parse(cmbEstatus.SelectedValue.ToString());
+            calidad.ClaveCalidad = int.TryParse(txtCodigo.Text, out int clave) ? int.Parse(txtCodigo.Text) : 0;
+            calidad.NombreCalidad = txtCodigo.Text;
+            calidad.Status = int.Parse(cmbEstatus.SelectedValue.ToString());
 
-            DataTable dt = clasificacion.Consultar().Tables[0];
+            DataTable dt = calidad.Consultar().Tables[0];
             dgvClasificaciones.Rows.Clear();
             foreach (DataRow dr in dt.Rows)
             {
                 DataGridViewRow drNew = new DataGridViewRow();
                 drNew.CreateCells(dgvClasificaciones);
-                drNew.Cells[0].Value = dr[0].ToString();
-                drNew.Cells[1].Value = dr[1].ToString();
-                drNew.Cells[2].Value = dr[3].ToString();
-                drNew.Cells[3].Value = dr[4].ToString();
-                drNew.Cells[4].Value = dr[5].ToString();
-                drNew.Cells[5].Value = dr[6].ToString();
-                string tituloEliminar = dr[6].ToString() == "Activo" ? "Inactivar" : "Activar";
+                drNew.Cells[0].Value = dr["ClaveCalidad"].ToString();
+                drNew.Cells[1].Value = dr["Calidad"].ToString();
+                drNew.Cells[2].Value = dr["Creacion"].ToString();
+                drNew.Cells[3].Value = dr["Modificacion"].ToString();
+                drNew.Cells[4].Value = dr["Estado"].ToString();
+                string tituloEliminar = dr["Estado"].ToString() == "Activo" ? "Inactivar" : "Activar";
                 DataGridViewButtonCell btnModificar = new DataGridViewButtonCell
                 {
                     Value = "Modificar"
@@ -70,8 +64,8 @@ namespace PDV.Productos
                 {
                     Value = tituloEliminar
                 };
-                drNew.Cells[6] = btnModificar;
-                drNew.Cells[7] = btnEliminar;
+                drNew.Cells[5] = btnModificar;
+                drNew.Cells[6] = btnEliminar;
                 dgvClasificaciones.Rows.Add(drNew);
             }
         }
@@ -99,26 +93,9 @@ namespace PDV.Productos
             cmbEstatus.DisplayMember = "Estatus";
             cmbEstatus.ValueMember = "intEstatus";
             cmbEstatus.SelectedIndexChanged += new EventHandler(cmbEstatus_SelectedIndexChanged);
-            //cmbCategorias
-            cmbCategorias.SelectedIndexChanged -= new EventHandler(cmbCategorias_SelectedIndexChanged);
-            categoria.Descripcion = "";
-            categoria.Status = -1;
-            DataTable dtCategoria = categoria.ConsultarCategorias().Tables[0];
-            DataRow drCategoria = dtCategoria.NewRow();
-            drCategoria[0] = 0;
-            drCategoria[1] = "Todos";
-            dtCategoria.Rows.Add(drCategoria);
-            DataView dtV = dtCategoria.DefaultView;
-            dtV.Sort = "Codigo ASC";
-            dtCategoria = dtV.ToTable();
-            cmbCategorias.DataSource = dtCategoria;
-            cmbCategorias.ValueMember = "Codigo";
-            cmbCategorias.DisplayMember = "Descripcion";
-            cmbCategorias.SelectedIndexChanged += new EventHandler(cmbCategorias_SelectedIndexChanged);
 
         }
         #endregion
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Consultar();
@@ -150,16 +127,20 @@ namespace PDV.Productos
                     case "Eliminar":
                         if (Mensajes.MostrarConfirmacion("Clasificación", string.Format("¿{0} la Clasificación {1}?", dgvClasificaciones.Rows[e.RowIndex].Cells[5].Value.ToString() == "Activo" ? "Inactivar" : "Activar", dgvClasificaciones.Rows[e.RowIndex].Cells[1].Value.ToString())))
                         {
-                            Clasificacion clasificacion = new Clasificacion();
-                            clasificacion.ClaveClasificacion = int.Parse(dgvClasificaciones.Rows[e.RowIndex].Cells[0].Value.ToString());
-                            clasificacion.Eliminar();
+                            Calidad calidad = new Calidad();
+                            calidad.ClaveCalidad = int.Parse(dgvClasificaciones.Rows[e.RowIndex].Cells[0].Value.ToString());
+                            calidad.Eliminar();
+                            if (calidad.StatusOP == -1)
+                            {
+                                Mensajes.MostrarError("Clasificación", calidad.MensajeException);
+                            }
                             this.Consultar();
                         }
                         break;
                     case "Modificar":
-                        frmNuevaClasificacion frmModificar = new frmNuevaClasificacion(2);
+                        frmNuevaCalidad frmModificar = new frmNuevaCalidad(2);
                         frmModificar.FormClosed += new System.Windows.Forms.FormClosedEventHandler(frmNuevaCategoria_FormClosed);
-                        frmModificar.ClaveClasifiacion = int.Parse(dgvClasificaciones.Rows[e.RowIndex].Cells[0].Value.ToString());
+                        frmModificar.ClaveCalidad = int.Parse(dgvClasificaciones.Rows[e.RowIndex].Cells[0].Value.ToString());
                         frmModificar.Show();
                         break;
                 }

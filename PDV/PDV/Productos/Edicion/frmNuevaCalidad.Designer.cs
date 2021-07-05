@@ -1,6 +1,6 @@
 ﻿namespace PDV.Productos
 {
-    partial class frmNuevaCategoria
+    partial class frmNuevaCalidad
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.pnlEncabezado = new System.Windows.Forms.Panel();
@@ -58,7 +58,7 @@
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(534, 278);
+            this.pnlContainer.Size = new System.Drawing.Size(500, 272);
             this.pnlContainer.TabIndex = 0;
             // 
             // panel1
@@ -66,9 +66,9 @@
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 217);
+            this.panel1.Location = new System.Drawing.Point(0, 218);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(534, 61);
+            this.panel1.Size = new System.Drawing.Size(500, 54);
             this.panel1.TabIndex = 5;
             // 
             // btnSalir
@@ -77,7 +77,7 @@
             this.btnSalir.BackColor = System.Drawing.Color.Snow;
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Image = global::PDV.Properties.Resources.salir;
-            this.btnSalir.Location = new System.Drawing.Point(421, 17);
+            this.btnSalir.Location = new System.Drawing.Point(377, 10);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 32);
             this.btnSalir.TabIndex = 0;
@@ -93,7 +93,7 @@
             this.pnlDetail.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDetail.Location = new System.Drawing.Point(0, 51);
             this.pnlDetail.Name = "pnlDetail";
-            this.pnlDetail.Size = new System.Drawing.Size(534, 166);
+            this.pnlDetail.Size = new System.Drawing.Size(500, 167);
             this.pnlDetail.TabIndex = 4;
             // 
             // tabControl1
@@ -104,7 +104,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(534, 166);
+            this.tabControl1.Size = new System.Drawing.Size(500, 167);
             this.tabControl1.TabIndex = 0;
             // 
             // tbpGeneral
@@ -112,13 +112,13 @@
             this.tbpGeneral.Controls.Add(this.btnGuardar);
             this.tbpGeneral.Controls.Add(this.button1);
             this.tbpGeneral.Controls.Add(this.label6);
-            this.tbpGeneral.Controls.Add(this.txtDescripcion);
+            this.tbpGeneral.Controls.Add(this.txtNombre);
             this.tbpGeneral.Controls.Add(this.lblCodigo);
             this.tbpGeneral.Controls.Add(this.txtCodigo);
             this.tbpGeneral.Location = new System.Drawing.Point(4, 26);
             this.tbpGeneral.Name = "tbpGeneral";
             this.tbpGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpGeneral.Size = new System.Drawing.Size(526, 136);
+            this.tbpGeneral.Size = new System.Drawing.Size(492, 137);
             this.tbpGeneral.TabIndex = 0;
             this.tbpGeneral.Text = "Información General";
             this.tbpGeneral.UseVisualStyleBackColor = true;
@@ -162,14 +162,14 @@
             this.label6.TabIndex = 41;
             this.label6.Text = "Nombre: ";
             // 
-            // txtDescripcion
+            // txtNombre
             // 
-            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(178, 60);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(305, 29);
-            this.txtDescripcion.TabIndex = 0;
-            this.txtDescripcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescripcion_KeyDown);
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(178, 60);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(305, 29);
+            this.txtNombre.TabIndex = 0;
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             // 
             // lblCodigo
             // 
@@ -188,7 +188,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(178, 25);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(305, 29);
-            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TabIndex = 38;
             this.txtCodigo.Visible = false;
             // 
             // pnlEncabezado
@@ -201,7 +201,7 @@
             this.pnlEncabezado.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEncabezado.Location = new System.Drawing.Point(0, 0);
             this.pnlEncabezado.Name = "pnlEncabezado";
-            this.pnlEncabezado.Size = new System.Drawing.Size(534, 51);
+            this.pnlEncabezado.Size = new System.Drawing.Size(500, 51);
             this.pnlEncabezado.TabIndex = 3;
             // 
             // lblTitulo
@@ -211,22 +211,22 @@
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(11, 7);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(168, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(194, 30);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Nueva Categoría";
+            this.lblTitulo.Text = "Nueva Clasificación";
             // 
-            // frmNuevaCategoria
+            // frmNuevaCalidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 278);
+            this.ClientSize = new System.Drawing.Size(500, 272);
             this.Controls.Add(this.pnlContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNuevaCategoria";
+            this.Name = "frmNuevaCalidad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nueva Categoría";
+            this.Text = "Nueva Clasificación";
             this.Load += new System.EventHandler(this.frmNuevaCategoria_Load);
             this.pnlContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -250,7 +250,7 @@
         private System.Windows.Forms.TabPage tbpGeneral;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Panel panel1;

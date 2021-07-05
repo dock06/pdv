@@ -42,8 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Productos\Clasificacion.cs" />
-    <Compile Include="Productos\Categoria.cs" />
+    <Compile Include="Productos\Calidad.cs" />
+    <Compile Include="Productos\TipoProducto.cs" />
     <Compile Include="Productos\Presentacion.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Productos\Producto.cs" />

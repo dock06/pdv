@@ -42,9 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Productos\Clasificaciones.cs" />
+    <Compile Include="Productos\Calidad.cs" />
     <Compile Include="Productos\Presentaciones.cs" />
-    <Compile Include="Productos\Categorias.cs" />
+    <Compile Include="Productos\TipoProducto.cs" />
     <Compile Include="Productos\Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clientes\Clientes.cs" />

@@ -52,7 +52,7 @@ namespace PDV.Productos
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<frmCategorias>();
+            AbrirFormulario<frmTipoProducto>();
         }
 
         private void btnPresentaciones_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace PDV.Productos
 
         private void btnClasificacion_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<frmClasificaciones>();
+            AbrirFormulario<frmCalidad>();
         }
 
         private void btnImportar_Click(object sender, EventArgs e)

@@ -5,22 +5,23 @@ using System.Windows.Forms;
 
 namespace PDV.Productos
 {
-    public partial class frmCategorias : Form
+    public partial class frmTipoProducto : Form
     {
-        private Categoria categoria;
-        public frmCategorias()
+        private TipoProducto tipoProducto;
+        private Bussiness.Productos.TipoProducto bTipoProducto;
+        public frmTipoProducto()
         {
             InitializeComponent();
-            categoria = new Categoria();
+            tipoProducto = new TipoProducto();
         }
         #region Eventos        
         private void btnNuevoCategoria_Click(object sender, EventArgs e)
         {
 
-            frmNuevaCategoria frmNuevaCategoria = new frmNuevaCategoria(1);
-            frmNuevaCategoria.FormClosed += new System.Windows.Forms.FormClosedEventHandler(frmNuevaCategoria_FormClosed);
+            frmNuevoTipoProducto frmTipoProducto = new frmNuevoTipoProducto(1);
+            frmTipoProducto.FormClosed += new System.Windows.Forms.FormClosedEventHandler(frmNuevaCategoria_FormClosed);
 
-            frmNuevaCategoria.Show();
+            frmTipoProducto.Show();
 
 
         }
@@ -42,17 +43,22 @@ namespace PDV.Productos
                     case "Eliminar":
                         if (Mensajes.MostrarConfirmacion("Categorias", string.Format("¿{0} la Categoria {1}?", dgvCategorias.Rows[e.RowIndex].Cells[4].Value.ToString() == "Activo" ? "Inactivar" : "Activar", dgvCategorias.Rows[e.RowIndex].Cells[1].Value.ToString())))
                         {
-                            Categoria categoria = new Categoria();
-                            categoria.ClaveCategoria = int.Parse(dgvCategorias.Rows[e.RowIndex].Cells[0].Value.ToString());
-                            categoria.EliminarCategoria();
+                            TipoProducto tipoProducto = new TipoProducto();
+                            tipoProducto.ClaveTipoProducto = int.Parse(dgvCategorias.Rows[e.RowIndex].Cells[0].Value.ToString());
+                            bTipoProducto = new Bussiness.Productos.TipoProducto(tipoProducto);
+                            bTipoProducto.Eliminar();
+                            if (tipoProducto.StatusOP == -1)
+                            {
+                                Mensajes.MostrarError("Tipo Producto", tipoProducto.MensajeException);
+                            }
                             this.ConsultarCategorias();
                         }
                         break;
                     case "Modificar":
-                        frmNuevaCategoria frmModificar = new frmNuevaCategoria(2);
-                        frmModificar.FormClosed += new System.Windows.Forms.FormClosedEventHandler(frmNuevaCategoria_FormClosed);
-                        frmModificar.claveCategoria = int.Parse(dgvCategorias.Rows[e.RowIndex].Cells[0].Value.ToString());
-                        frmModificar.Show();
+                        frmNuevoTipoProducto frmTipoProducto = new frmNuevoTipoProducto(2);
+                        frmTipoProducto.FormClosed += new System.Windows.Forms.FormClosedEventHandler(frmNuevaCategoria_FormClosed);
+                        frmTipoProducto.claveTipoProducto = int.Parse(dgvCategorias.Rows[e.RowIndex].Cells[0].Value.ToString());
+                        frmTipoProducto.Show();
                         break;
                 }
 
@@ -62,21 +68,21 @@ namespace PDV.Productos
         #region Metodos
         public void ConsultarCategorias()
         {
-            categoria.Descripcion = "";
+            tipoProducto.NombreTipoProducto = "";
             if (!string.IsNullOrEmpty(txtCodigo.Text))
             {
-                categoria.Descripcion = txtCodigo.Text;
+                tipoProducto.NombreTipoProducto = txtCodigo.Text;
             }
             if (string.IsNullOrEmpty(cmbEstatus.SelectedValue.ToString()))
             {
-                categoria.Status = -1;
+                tipoProducto.Status = -1;
             }
             else
             {
-                categoria.Status = int.Parse(cmbEstatus.SelectedValue.ToString());
+                tipoProducto.Status = int.Parse(cmbEstatus.SelectedValue.ToString());
             }
 
-            DataTable dt = categoria.ConsultarCategorias().Tables[0];
+            DataTable dt = tipoProducto.Consultar().Tables[0];
             dgvCategorias.Rows.Clear();
             foreach (DataRow dr in dt.Rows)
             {
@@ -122,7 +128,7 @@ namespace PDV.Productos
             dtEstatus.Rows.Add(dr);
             dr = dtEstatus.NewRow();
             dr["intEstatus"] = 0;
-            dr["Estatus"] = "Eliminados";
+            dr["Estatus"] = "Inactivos";
             dtEstatus.Rows.Add(dr);
             cmbEstatus.DataSource = dtEstatus;
             cmbEstatus.DisplayMember = "Estatus";
@@ -146,7 +152,7 @@ namespace PDV.Productos
 
         private void cmbEstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-                ConsultarCategorias();
+            ConsultarCategorias();
         }
 
         private void dgvCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
